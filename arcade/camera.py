@@ -4,7 +4,8 @@ Camera class
 from __future__ import annotations
 
 import math
-from typing import TYPE_CHECKING, List, Optional, Tuple, Union
+from typing import TYPE_CHECKING, List, Literal, Optional, Tuple, TypeAlias, Union
+import typing_extensions
 
 from pyglet.math import Mat4, Vec2, Vec3
 
@@ -15,13 +16,26 @@ from arcade.math import get_distance
 if TYPE_CHECKING:
     from arcade import Sprite, SpriteList
 
+#: A tuple of four ints (this is comment)
+"""A tuple of four ints (this is docstring)"""
+#: A tuple of four floats (this is comment)
+"""A tuple of four floats (this is docstring)"""
+foo = 1
+
 # type aliases
-FourIntTuple = Tuple[int, int, int, int]
-FourFloatTuple = Tuple[float, float, float, float]
+#:
+FourIntTuple = typing_extensions.TypeAliasType('FourIntTuple', Tuple[int, int, int, int])
+#:
+FourFloatTuple: TypeAlias = Tuple[float, float, float, float]
 
 __all__ = [
     "SimpleCamera",
-    "Camera"
+    "Camera",
+    "FourIntTuple",
+    "FourFloatTuple",
+    "OldSchoolAlias",
+    "NewSchoolAlias",
+    "function_uses_both_aliases"
 ]
 
 
@@ -574,3 +588,10 @@ class Camera(SimpleCamera):
         :returns: List of sprites colliding, or an empty list.
         """
         raise NotImplementedError()
+
+OldSchoolAlias: TypeAlias = Tuple[Literal['old-school'], int]
+"""docstring of old-school type alias"""
+NewSchoolAlias = typing_extensions.TypeAliasType('NewSchoolAlias', Tuple[Literal['new-school'], int])
+"""docstring of new-school type alias"""
+def function_uses_both_aliases(old: OldSchoolAlias, new: NewSchoolAlias):
+    """docstring of function using both in its signature"""

@@ -19,7 +19,7 @@ runpy.run_path('../util/generate_example_thumbnails.py', run_name='__main__')
 # Create a listing of the resources
 runpy.run_path('../util/create_resources_listing.py', run_name='__main__')
 # Run the generate quick API index script
-runpy.run_path('../util/update_quick_index.py', run_name='__main__')
+# runpy.run_path('../util/update_quick_index.py', run_name='__main__')
 
 # Enable this is you want __init__ to show up in docs.
 # Ideally, these docs should be in the class docs, not __init__ so try to
@@ -29,10 +29,19 @@ runpy.run_path('../util/update_quick_index.py', run_name='__main__')
 # }
 
 autodoc_inherit_docstrings = False
+# autodoc_type_aliases = {
+#     'FourIntTuple': 'FourIntTuple',
+#     'FourFloatTuple': 'arcade.camera.FourFloatTuple'
+# }
 autodoc_default_options = {
     'members': True,
-    'member-order': 'groupwise',
+    # 'noindexentry': True,
+    # 'members': 'var1, var2',
+    'member-order': 'bysource',
+    # 'special-members': '__init__',
     'undoc-members': True,
+    # 'private-members': True,
+    # 'exclude-members': '__weakref__',
     'show-inheritance': True
 }
 toc_object_entries_show_parents = 'hide'
@@ -186,6 +195,8 @@ def strip_init_return_typehint(app, what, name, obj, options, signature, return_
     # This annotation comes from the `__init__`, but it renders on the class,
     # e.g. `Foo() -> None`
     # From the user's perspective, this is wrong: `Foo() -> Foo` not `None`
+    if name == 'arcade.camera.Camera':
+        print(what, name, obj, signature, return_annotation)
     if what == "class" and return_annotation is None:
         return (signature, None)
 
