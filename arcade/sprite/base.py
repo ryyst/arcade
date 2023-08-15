@@ -457,7 +457,6 @@ class BasicSprite:
 
         :param point: The reference point for rescaling.
         :param factor: Multiplier for sprite scale & distance to point.
-        :return:
         """
         # abort if the multiplier wouldn't do anything
         if factor == 1.0:
@@ -511,7 +510,6 @@ class BasicSprite:
         :param factors_xy: A 2-length iterable containing x and y
                            multipliers for ``scale`` & distance to
                            ``point``.
-        :return:
         """
         # exit early if nothing would change
         factor_x, factor_y = factors_xy
@@ -598,7 +596,8 @@ class BasicSprite:
         Check if point is within the current sprite.
 
         :param point: Point to check.
-        :return: True if the point is contained within the sprite's boundary.
+        Returns:
+            True if the point is contained within the sprite's boundary.
         """
         from arcade.geometry import is_point_in_polygon
 
@@ -609,7 +608,8 @@ class BasicSprite:
         """Will check if a sprite is overlapping (colliding) another Sprite.
 
         :param other: the other sprite to check against.
-        :return: True or False, whether or not they are overlapping.
+        Returns:
+            True or False, whether or not they are overlapping.
         """
         from arcade import check_for_collision
 
@@ -621,7 +621,8 @@ class BasicSprite:
         """Check if current sprite is overlapping with any other sprite in a list
 
         :param sprite_list: SpriteList to check against
-        :return: List of all overlapping Sprites from the original SpriteList
+        Returns:
+            List of all overlapping Sprites from the original SpriteList
         """
         from arcade import check_for_collision_with_list
 

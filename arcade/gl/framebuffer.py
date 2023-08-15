@@ -413,7 +413,8 @@ class Framebuffer:
         :param components:
         :param attachment: The attachment id to read from
         :param dtype: The data type to read
-        :return: pixel data as a bytearray
+        Returns:
+            pixel data as a bytearray
         """
         # TODO: use texture attachment info to determine read format?
         try:

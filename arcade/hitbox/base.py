@@ -53,7 +53,8 @@ class HitBoxAlgorithm:
 
         :param image: The image to calculate hitbox points for
         :param kwargs: keyword arguments
-        :return: A list of hit box points.
+        Returns:
+            A list of hit box points.
         """
         raise NotImplementedError
 
@@ -63,7 +64,8 @@ class HitBoxAlgorithm:
 
         :param args: The same positional arguments as `__init__`
         :param kwds: The same keyword arguments as `__init__`
-        :return: A new HitBoxAlgorithm instance
+        Returns:
+            A new HitBoxAlgorithm instance
         """
         return self.__class__(*args, **kwds)  # type: ignore
 
@@ -111,7 +113,6 @@ class HitBox:
     def position(self) -> Point:
         """
         The center point used to offset the final adjusted positions.
-        :return:
         """
         return self._position
 
@@ -186,7 +187,6 @@ class HitBox:
         representation.
 
         :param angle: The angle to rotate points by (0 by default)
-        :return:
         """
         return RotatableHitBox(
             self._points, position=self._position, scale=self._scale, angle=angle
@@ -254,7 +254,6 @@ class RotatableHitBox(HitBox):
 
         As with :py:meth:`.HitBox.get_adjusted_points`, this method only
         recalculates the adjusted values when necessary.
-        :return:
         """
         if not self._adjusted_cache_dirty:
             return self._adjusted_points

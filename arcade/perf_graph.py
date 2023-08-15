@@ -199,7 +199,6 @@ class PerfGraph(arcade.Sprite):
         """
         Remove the sprite from all lists and cancel the update event.
 
-        :return:
         """
         super().remove_from_sprite_lists()
 

@@ -334,7 +334,8 @@ class Context:
         Run garbage collection of OpenGL objects for this context.
         This is only needed when ``gc_mode`` is ``context_gc``.
 
-        :return: The number of resources destroyed
+        Returns:
+            The number of resources destroyed
         """
         # Loop the array until all objects are gone.
         # Deleting one object might add new ones so we need

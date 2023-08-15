@@ -25,7 +25,8 @@ def get_default_texture(size: IPoint = _DEFAULT_IMAGE_SIZE) -> Texture:
     Creates and returns a default texture and caches it internally for future use.
 
     :param size: Size of the texture to create
-    :return: The default texture.
+    Returns:
+        The default texture.
     """
     global _DEFAULT_TEXTURE
     if _DEFAULT_TEXTURE:
@@ -43,7 +44,8 @@ def get_default_image(size: IPoint = _DEFAULT_IMAGE_SIZE) -> ImageData:
     Generates and returns a default image and caches it internally for future use.
 
     :param size: Size of the image to create.
-    :return: The default image.
+    Returns:
+        The default image.
     """
     name = f"arcade-default-texture|{size}"
     image_data = cache.image_data_cache.get(name)

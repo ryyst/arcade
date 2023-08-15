@@ -51,7 +51,8 @@ def get_display_size(screen_id: int = 0) -> Tuple[int, int]:
     The size of the primary monitor is returned by default.
 
     :param screen_id: The screen number
-    :return: Tuple containing the width and height of the screen
+    Returns:
+        Tuple containing the width and height of the screen
     """
     display = pyglet.canvas.Display()
     screen = display.get_screens()[screen_id]
@@ -76,7 +77,8 @@ def get_window() -> "Window":
     """
     Return a handle to the current window.
 
-    :return: Handle to the current window.
+    Returns:
+        Handle to the current window.
     """
     if _window is None:
         raise RuntimeError(

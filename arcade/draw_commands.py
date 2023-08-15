@@ -1010,7 +1010,8 @@ def get_image(x: int = 0, y: int = 0, width: Optional[int] = None, height: Optio
     :param y: Start (top) y location
     :param width: Width of image. Leave blank for grabbing the 'rest' of the image
     :param height: Height of image. Leave blank for grabbing the 'rest' of the image
-    :returns: A Pillow Image
+    Returns:
+        A Pillow Image
     """
     window = get_window()
 

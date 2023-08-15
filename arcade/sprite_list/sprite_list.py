@@ -505,7 +505,8 @@ class SpriteList(Generic[SpriteType]):
         """
         Get the next available slot in sprite buffers
 
-        :return: index slot, buffer_slot
+        Returns:
+            index slot, buffer_slot
         """
         # Reuse old slots from deleted sprites
         if self._sprite_buffer_free_slots:

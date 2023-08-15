@@ -53,7 +53,8 @@ class ImageDataCache:
         Attempts to retrieve an entry from the cache.
 
         :param name: Name of the image
-        :return: ImageData object or None if not found
+        Returns:
+            ImageData object or None if not found
         """
         return self._entries_strong.get(name) or self._entries_weak.get(name)
 

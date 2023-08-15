@@ -212,7 +212,6 @@ class Color(RGBA255):
 
         :param brightness: How bright the shade should be
         :param a: a transparency value, fully opaque by default
-        :return:
         """
 
         if not 0 <= brightness <= 255:
@@ -302,7 +301,6 @@ class Color(RGBA255):
             Color(r=0, g=255, b=0, a=127)
 
         :param color_normalized: The color as normalized (0.0 to 1.0) RGBA values.
-        :return:
         """
         r, g, b, *_a = color_normalized
 

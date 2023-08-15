@@ -208,7 +208,8 @@ class Texture:
         A dictionary of properties for this texture.
         This can be used to store any data you want.
 
-        :return: Dict[str, Any]
+        Returns:
+            Dict[str, Any]
         """
         return self._properties
 
@@ -217,7 +218,8 @@ class Texture:
         """
         The name of the texture used for caching (read only).
 
-        :return: str
+        Returns:
+            str
         """
         return self._cache_name
 
@@ -236,7 +238,8 @@ class Texture:
         :param hit_box_algorithm: The hit box algorithm
         :param hit_box_args: The hit box algorithm arguments
         :param Tuple[int, int, int, int] vertex_order: The vertex order
-        :return: str
+        Returns:
+            str
         """
         if not isinstance(hash, str):
             raise TypeError(f"Expected str, got {type(hash)}")
@@ -276,7 +279,8 @@ class Texture:
         """
         The name of the texture used for the texture atlas (read only).
 
-        :return: str
+        Returns:
+            str
         """
         return self._atlas_name
 
@@ -285,7 +289,8 @@ class Texture:
         """
         A Path object to the file this texture was loaded from
 
-        :return: Path
+        Returns:
+            Path
         """
         return self._file_path
 
@@ -298,7 +303,8 @@ class Texture:
         """
         The crop values used to create this texture in the referenced file
 
-        :return: Tuple[int, int, int, int]
+        Returns:
+            Tuple[int, int, int, int]
         """
         return self._crop_values
 
@@ -339,7 +345,8 @@ class Texture:
         to determine the uniqueness of the image
         in texture atlases.
 
-        :return: ImageData
+        Returns:
+            ImageData
         """
         return self._image_data
 
@@ -398,7 +405,8 @@ class Texture:
         Custom hit box points must be supplied during texture creation
         and should ideally not be changed after creation.
 
-        :return: PointList
+        Returns:
+            PointList
         """
         return self._hit_box_points
 
@@ -417,7 +425,8 @@ class Texture:
         :param name: Name of the texture
         :param Tuple[int, int] size: Size of the texture
         :param color: Color of the texture
-        :return: Texture
+        Returns:
+            Texture
         """
         return cls.create_empty(name, size, color)
 
@@ -496,7 +505,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(FlipLeftRightTransform)
 
@@ -508,7 +518,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(FlipTopBottomTransform)
 
@@ -520,7 +531,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.flip_left_right()
 
@@ -532,7 +544,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.flip_top_bottom()
 
@@ -545,7 +558,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transpose()
 
@@ -558,7 +572,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(TransposeTransform)
 
@@ -571,7 +586,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(TransverseTransform)
 
@@ -584,7 +600,8 @@ class Texture:
         applied to the image when it's drawn (GPU side).
 
         :param count: Number of 90 degree steps to rotate.
-        :return: Texture
+        Returns:
+            Texture
         """
         angles = [None, Rotate90Transform, Rotate180Transform, Rotate270Transform]
         count = count % 4
@@ -601,7 +618,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(Rotate180Transform)
 
@@ -613,7 +631,8 @@ class Texture:
         has updated hit box data and a transform that will be
         applied to the image when it's drawn (GPU side).
 
-        :return: Texture
+        Returns:
+            Texture
         """
         return self.transform(Rotate270Transform)
 
@@ -625,7 +644,8 @@ class Texture:
         Create a new texture with the given transform applied.
 
         :param transform: Transform to apply
-        :return: New texture
+        Returns:
+            New texture
         """
         new_hit_box_points = transform.transform_hit_box_points(self._hit_box_points)
         texture = Texture(
@@ -670,7 +690,8 @@ class Texture:
         :param width: Width of crop
         :param height: Height of crop
         :param cache: If True, the cropped texture will be cached
-        :return: Texture
+        Returns:
+            Texture
         """
         # Return self if the crop is the same size as the original image
         if (
@@ -728,7 +749,8 @@ class Texture:
         Remove this texture from the cache.
 
         :param ignore_error: If True, ignore errors if the texture is not in the cache
-        :return: None
+        Returns:
+            None
         """
         _cache.texture_cache.delete(self)
 

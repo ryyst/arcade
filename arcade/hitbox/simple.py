@@ -19,7 +19,8 @@ class SimpleHitBoxAlgorithm(HitBoxAlgorithm):
 
         :param image:
 
-        :Returns: List of points
+        Returns:
+            List of points
         """
         if image.mode != "RGBA":
             raise ValueError("Image mode is not RGBA. image.convert('RGBA') is needed.")

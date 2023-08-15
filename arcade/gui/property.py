@@ -105,7 +105,8 @@ def bind(instance, property: str, callback):
     :param instance: Instance owning the property
     :param property: Name of the property
     :param callback: Function to call
-    :return: None
+    Returns:
+        None
     """
     t = type(instance)
     prop = getattr(t, property)

@@ -109,7 +109,8 @@ class Background:
         assumed to be in the range 0.0-1.0.
         :param shader: The shader used for rendering.
         :param geometry: The geometry used for rendering (a rectangle equal to the size by default).
-        :return: The generated Background.
+        Returns:
+            The generated Background.
         """
         background_texture = BackgroundTexture.from_file(
             tex_src, offset, scale, angle, filters

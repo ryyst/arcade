@@ -386,7 +386,8 @@ class SectionManager:
         """
         Returns the first section with the given name
         :param name: the name of the section you want
-        :return: the first section with the provided name. None otherwise
+        Returns:
+            the first section with the provided name. None otherwise
         """
         for section in self._sections:
             if section.name == name:
@@ -525,7 +526,8 @@ class SectionManager:
         :param x: the x axis coordinate
         :param y: the y axis coordinate
         :param event_capture: True will use event capture dimensions, False will use section draw size
-        :return: a section if match the params otherwise None
+        Returns:
+            a section if match the params otherwise None
         """
         for section in self._sections:
             if section.enabled:
@@ -542,7 +544,8 @@ class SectionManager:
         :param x: the x axis coordinate
         :param y: the y axis coordinate
         :param event_capture: True will use event capture dimensions, False will use section draw size
-        :return: a generator with the sections that match the params
+        Returns:
+            a generator with the sections that match the params
         """
         for section in self._sections:
             if section.enabled:
@@ -563,7 +566,8 @@ class SectionManager:
         :param current_section: the section this mouse event should be delivered to. If None, will retrive all
                                 sections that should recieve this event based on x, y coordinates
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
 
         sections: Union[list, Generator]
@@ -625,7 +629,8 @@ class SectionManager:
         :param event: the keyboard event name to dispatch
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         propagate_to_view = True
         prevent_dispatch = EVENT_UNHANDLED
@@ -672,7 +677,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_mouse_event('on_mouse_press', x, y, *args, **kwargs)
 
@@ -684,7 +690,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_mouse_event('on_mouse_release', x, y, *args, **kwargs)
 
@@ -699,7 +706,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         before_sections = self.mouse_over_sections
         current_sections = list(self.get_sections(x, y))  # consume the generator
@@ -736,7 +744,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_mouse_enter_leave_events('on_mouse_motion', x, y, *args, **kwargs)
 
@@ -748,7 +757,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_mouse_enter_leave_events('on_mouse_drag', x, y, *args, **kwargs)
 
@@ -760,7 +770,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_mouse_event('on_mouse_scroll', x, y, *args, **kwargs)
 
@@ -773,7 +784,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         current_sections = list(self.get_sections(x, y))  # consume the generator
 
@@ -797,7 +809,8 @@ class SectionManager:
         :param y: the y axis coordinate
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         prevent_dispatch = EVENT_UNHANDLED
         for section in self.mouse_over_sections:
@@ -815,7 +828,8 @@ class SectionManager:
 
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_keyboard_event('on_key_press', *args, **kwargs)
 
@@ -825,7 +839,8 @@ class SectionManager:
 
         :param args: any other position arguments that should be deliverd to the dispatched event
         :param kwargs: any other keyword arguments that should be delivered to the dispatched event
-        :return: EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
+        Returns:
+            EVENT_HANDLED or EVENT_UNHANDLED, or whatever the dispatched method returns
         """
         return self.dispatch_keyboard_event('on_key_release', *args, **kwargs)
 

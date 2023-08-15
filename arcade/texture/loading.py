@@ -40,7 +40,8 @@ def load_texture(
     :param width: Width of the texture in the image.
     :param height: Height of the texture in the image.
     :param hit_box_algorithm:
-    :returns: New :class:`Texture` object.
+    Returns:
+        New :class:`Texture` object.
     :raises: ValueError
     """
     LOG.info("load_texture: %s ", file_path)
@@ -75,7 +76,8 @@ def _load_tilemap_texture(
     :param width: Width of the texture in the image.
     :param height: Height of the texture in the image.
     :param hit_box_algorithm:
-    :returns: New :class:`Texture` object.
+    Returns:
+        New :class:`Texture` object.
     :raises: ValueError
     """
     crop = (x, y, width, height)
@@ -139,7 +141,8 @@ def _load_or_get_image(
     :param file_path: Path to image
     :param hit_box_algorithm: The hit box algorithm
     :param hash: Hash of the image
-    :return: Tuple of image data and a boolean indicating if the image
+    Returns:
+        Tuple of image data and a boolean indicating if the image
              was fetched from cache
     """
     file_path_str = str(file_path)
@@ -203,7 +206,8 @@ def load_textures(
     :param flipped: If set to `True`, the image is flipped upside down.
     :param hit_box_algorithm: One of None, 'None', 'Simple' (default) or 'Detailed'.
     :param hit_box_detail: Float, defaults to 4.5. Used with 'Detailed' to hit box
-    :returns: List of :class:`Texture`'s.
+    Returns:
+        List of :class:`Texture`'s.
 
     :raises: ValueError
     """

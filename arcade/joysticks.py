@@ -16,7 +16,8 @@ def get_joysticks() -> List[Joystick]:
 
     This is an alias of ``get_game_controllers``, which is better worded.
 
-    :return: List of game controllers
+    Returns:
+        List of game controllers
     """
     return pyglet.input.get_joysticks() # type: ignore  # pending https://github.com/pyglet/pyglet/issues/842
 
@@ -25,6 +26,7 @@ def get_game_controllers() -> List[Joystick]:
     """
     Get a list of all the game controllers
 
-    :return: List of game controllers
+    Returns:
+        List of game controllers
     """
     return get_joysticks()

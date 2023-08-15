@@ -31,7 +31,8 @@ def make_circle_texture(
         :py:class:`~arcade.types.Color` instance a 3 or 4 tuple.
     :param name: Custom or pre-chosen name for this texture
 
-    :returns: New :class:`Texture` object.
+    Returns:
+        New :class:`Texture` object.
     """
     name = name or cache.crate_str_from_values(
         "circle_texture", diameter, color[0], color[1], color[2]
@@ -62,7 +63,8 @@ def make_soft_circle_texture(
     :param name: Custom or pre-chosen name for this texture
     :param hit_box_algorithm: The hit box algorithm
 
-    :returns: New :class:`Texture` object.
+    Returns:
+        New :class:`Texture` object.
     """
     # Name must be unique for caching
     name = cache.crate_str_from_values(
@@ -113,7 +115,8 @@ def make_soft_square_texture(
     :param outer_alpha: Alpha value of the square at its edges.
     :param name: Custom or pre-chosen name for this texture
 
-    :returns: New :class:`Texture` object.
+    Returns:
+        New :class:`Texture` object.
     """
     # Build name used for caching
     name = name or cache.crate_str_from_values(

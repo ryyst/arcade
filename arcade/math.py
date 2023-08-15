@@ -47,7 +47,8 @@ def round_fast(value: float, precision: int) -> float:
 
     :param value: The value to round
     :param precision: The number of decimal places to round to
-    :return: The rounded value
+    Returns:
+        The rounded value
     """
     precision = 10 ** precision
     return math.trunc(value * precision) / precision
@@ -78,7 +79,8 @@ def lerp_angle(start_angle: float, end_angle: float, u: float) -> float:
     :param start_angle: The starting angle
     :param end_angle: The ending angle
     :param u: The interpolation value
-    :return: The interpolated angle
+    Returns:
+        The interpolated angle
     """
     start_angle %= 360
     end_angle %= 360
@@ -99,7 +101,8 @@ def rand_in_rect(bottom_left: Point, width: float, height: float) -> Point:
     :param bottom_left: The bottom left corner of the rectangle
     :param width: The width of the rectangle
     :param height: The height of the rectangle
-    :return: A random point in the rectangle
+    Returns:
+        A random point in the rectangle
     """
     return (
         random.uniform(bottom_left[0], bottom_left[0] + width),
@@ -119,7 +122,8 @@ def rand_in_circle(center: Point, radius: float) -> Point:
 
     :param center: The center of the circle
     :param radius: The radius of the circle
-    :return: A random point in the circle
+    Returns:
+        A random point in the circle
     """
     # random angle
     angle = 2 * math.pi * random.random()
@@ -141,7 +145,8 @@ def rand_on_circle(center: Point, radius: float) -> Point:
 
     :param center: The center of the circle
     :param radius: The radius of the circle
-    :return: A random point on the circle
+    Returns:
+        A random point on the circle
     """
     angle = 2 * math.pi * random.random()
     return (
@@ -156,7 +161,8 @@ def rand_on_line(pos1: Point, pos2: Point) -> Point:
 
     :param pos1: The first point
     :param pos2: The second point
-    :return: A random point on the line
+    Returns:
+        A random point on the line
     """
     u = random.uniform(0.0, 1.0)
     return lerp_vec(pos1, pos2, u)
@@ -175,7 +181,8 @@ def rand_angle_spread_deg(angle: float, half_angle_spread: float) -> float:
 
     :param angle: The angle to spread from
     :param half_angle_spread: The half angle spread
-    :return: A random angle in degrees
+    Returns:
+        A random angle in degrees
     """
     s = random.uniform(-half_angle_spread, half_angle_spread)
     return angle + s
@@ -192,7 +199,8 @@ def rand_vec_spread_deg(
     :param angle: The angle to spread from
     :param half_angle_spread: The half angle spread
     :param length: The length of the vector
-    :return: A random vector
+    Returns:
+        A random vector
     """
     a = rand_angle_spread_deg(angle, half_angle_spread)
     vel = _Vec2.from_polar(a, length)
@@ -210,7 +218,8 @@ def rand_vec_magnitude(
     :param angle: The angle to spread from
     :param lo_magnitude: The lower magnitude
     :param hi_magnitude: The higher magnitude
-    :return: A random vector
+    Returns:
+        A random vector
     """
     mag = random.uniform(lo_magnitude, hi_magnitude)
     vel = _Vec2.from_polar(angle, mag)
@@ -288,7 +297,8 @@ def get_distance(x1: float, y1: float, x2: float, y2: float) -> float:
     :param y1: y coordinate of the first point
     :param x2: x coordinate of the second point
     :param y2: y coordinate of the second point
-    :return: Distance between the two points
+    Returns:
+        Distance between the two points
     """
     return math.hypot(x1 - x2, y1 - y2)
 
@@ -308,7 +318,8 @@ def rotate_point(
     :param cx: x value of the center point you want to rotate around
     :param cy: y value of the center point you want to rotate around
     :param angle_degrees: Angle, in degrees, to rotate
-    :return: Return rotated (x, y) pair
+    Returns:
+        Return rotated (x, y) pair
     """
     temp_x = x - cx
     temp_y = y - cy

@@ -79,7 +79,8 @@ def cube(
 
     :param size: size of the cube as a 3-component tuple
     :param center: center of the cube as a 3-component tuple
-    :returns: A cube
+    Returns:
+        A cube
     """
     ctx = _get_active_context()
     width, height, depth = size
@@ -224,7 +225,8 @@ def sphere(
     :param sectors: number of vertical segments
     :param normals: Include normals in the VAO
     :param uvs: Include texture coordinates in the VAO
-    :return: A geometry object
+    Returns:
+        A geometry object
     """
     ctx = _get_active_context()
 

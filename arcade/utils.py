@@ -150,7 +150,8 @@ def is_raspberry_pi() -> bool:
     """
     Determine if the host is a raspberry pi.
 
-    :returns: bool
+    Returns:
+        bool
     """
     return get_raspberry_pi_info()[0]
 
@@ -160,7 +161,8 @@ def get_raspberry_pi_info() -> Tuple[bool, str, str]:
     Determine if the host is a raspberry pi
     with additional info.
 
-    :returns: 3 component tuple.
+    Returns:
+        3 component tuple.
               bool (is host a raspi)
               str (architecture)
               str (model name)

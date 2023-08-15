@@ -109,7 +109,8 @@ class UIManager(EventDispatcher):
         :param widget: widget to add
         :param index: position a widget is added, None has the highest priority
         :param layer: layer which the widget should be added to, higher layer are above
-        :return: the widget
+        Returns:
+            the widget
         """
         if index is None:
             self.children[layer].append(widget)
@@ -165,7 +166,8 @@ class UIManager(EventDispatcher):
         :param pos: Pos within the widget bounds
         :param cls: class which the widget should be an instance of
         :param layer: layer to search, None will search through all layers
-        :return: iterator of widgets of given type at position
+        Returns:
+            iterator of widgets of given type at position
         """
         def check_type(widget) -> TypeGuard[W]:
             return isinstance(widget, cls)

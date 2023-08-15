@@ -250,7 +250,8 @@ class PhysicsEngineSimple:
         """
         Move everything and resolve collisions.
 
-        :Returns: SpriteList with all sprites contacted. Empty list if no sprites.
+        Returns:
+            SpriteList with all sprites contacted. Empty list if no sprites.
         """
 
         return _move_sprite(self.player_sprite, self.walls, ramp_up=False)
@@ -328,7 +329,8 @@ class PhysicsEnginePlatformer:
         the player_sprite. If there is a floor, the player can jump
         and we return a True.
 
-        :returns: True if there is a platform below us
+        Returns:
+            True if there is a platform below us
         """
 
         # Move down to see if we are on a platform
@@ -388,7 +390,8 @@ class PhysicsEnginePlatformer:
         """
         Move everything and resolve collisions.
 
-        :Returns: SpriteList with all sprites contacted. Empty list if no sprites.
+        Returns:
+            SpriteList with all sprites contacted. Empty list if no sprites.
         """
         # start_time = time.time()
         # print(f"Spot A ({self.player_sprite.center_x}, {self.player_sprite.center_y})")

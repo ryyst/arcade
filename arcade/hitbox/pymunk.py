@@ -41,7 +41,8 @@ class PymunkHitBoxAlgorithm(HitBoxAlgorithm):
         :param detail: How detailed to make the hit box. There's a
                            trade-off in number of points vs. accuracy.
 
-        :Returns: List of points
+        Returns:
+            List of points
         """
         hit_box_detail = detail or self.detail
 
@@ -98,7 +99,8 @@ class PymunkHitBoxAlgorithm(HitBoxAlgorithm):
         to pick the one that covers the most of the image.
 
         :param image: Image to trace.
-        :return: Line sets
+        Returns:
+            Line sets
         """
         def sample_func(sample_point: Point) -> int:
             """ Method used to sample image. """
@@ -154,7 +156,8 @@ class PymunkHitBoxAlgorithm(HitBoxAlgorithm):
         Given a list of line sets, return the one that covers the most of the image.
 
         :param line_sets: List of line sets.
-        :return: List of points that make up the line set.
+        Returns:
+            List of points that make up the line set.
         """
         if len(line_sets) == 1:
             return line_sets[0]

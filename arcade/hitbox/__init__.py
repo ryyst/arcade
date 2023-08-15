@@ -27,7 +27,8 @@ def calculate_hit_box_points_simple(image: Image, *args) -> PointList:
 
     :param image: Image get hit box from.
 
-    :Returns: List of points
+    Returns:
+        List of points
     """
     return algo_simple.calculate(image)
 
@@ -44,7 +45,8 @@ def calculate_hit_box_points_detailed(
     :param hit_box_detail: How detailed to make the hit box. There's a
                                trade-off in number of points vs. accuracy.
 
-    :Returns: List of points
+    Returns:
+        List of points
     """
     return algo_detailed.calculate(image, detail=hit_box_detail)
 

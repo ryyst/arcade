@@ -51,7 +51,8 @@ def get_screens() -> List:
     a list of two screens. Can be used with arcade.Window to select which
     window we full-screen on.
 
-    :returns: List of screens, one for each monitor.
+    Returns:
+        List of screens, one for each monitor.
     """
     display = pyglet.canvas.get_display()
     return display.get_screens()
@@ -641,7 +642,8 @@ class Window(pyglet.window.Window):
         """
         Get the size of the window.
 
-        :returns: (width, height)
+        Returns:
+            (width, height)
         """
 
         return super().get_size()
@@ -650,7 +652,8 @@ class Window(pyglet.window.Window):
         """
         Return the X/Y coordinates of the window
 
-        :returns: x, y of window location
+        Returns:
+            x, y of window location
         """
 
         return super().get_location()
@@ -933,7 +936,8 @@ def open_window(
     :param resizable: Whether the user can resize the window.
     :param antialiasing: Smooth the graphics?
 
-    :returns: Handle to window
+    Returns:
+        Handle to window
     """
 
     global _window

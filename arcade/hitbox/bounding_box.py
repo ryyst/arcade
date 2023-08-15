@@ -18,7 +18,8 @@ class BoundingHitBoxAlgorithm(HitBoxAlgorithm):
 
         :param image: Image get hit box from.
 
-        :Returns: List of points
+        Returns:
+            List of points
         """
         size = image.size
         return (

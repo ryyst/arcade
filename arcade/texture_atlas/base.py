@@ -431,7 +431,8 @@ class TextureAtlas:
         Add a texture to the atlas.
 
         :param texture: The texture to add
-        :return: texture_id, AtlasRegion tuple
+        Returns:
+            texture_id, AtlasRegion tuple
         """
         # If the texture is already in the atlas we also have the image
         # and can return early with the texture id and region
@@ -510,7 +511,8 @@ class TextureAtlas:
         This doesn't write the texture to the atlas texture itself.
         It only allocates space.
 
-        :return: The x, y texture_id, TextureRegion
+        Returns:
+            The x, y texture_id, TextureRegion
         """
         image = image_data.image
 
@@ -682,7 +684,8 @@ class TextureAtlas:
         Get the region info for and image by has
 
         :param hash: The hash of the image
-        :return: The AtlasRegion for the given texture name
+        Returns:
+            The AtlasRegion for the given texture name
         """
         return self._image_regions[hash]
 
@@ -690,7 +693,8 @@ class TextureAtlas:
         """
         Get the region info for a texture by atlas name
 
-        :return: The AtlasRegion for the given texture name
+        Returns:
+            The AtlasRegion for the given texture name
         """
         return self._texture_regions[atlas_name]
 
@@ -699,7 +703,8 @@ class TextureAtlas:
         Get the uv slot for a texture by atlas name
 
         :param atlas_name: The name of the texture in the atlas
-        :return: The texture id for the given texture name
+        Returns:
+            The texture id for the given texture name
         """
         return self._texture_uv_slots[atlas_name]
 
@@ -708,7 +713,8 @@ class TextureAtlas:
         Get the uv slot for a image by hash
 
         :param hash: The hash of the image
-        :return: The texture id for the given texture name
+        Returns:
+            The texture id for the given texture name
         """
         return self._image_uv_slots[hash]
 
@@ -931,7 +937,8 @@ class TextureAtlas:
 
         :param textures: Sequence of textures
         :param border: The border around each texture in pixels
-        :return: An estimated minimum size as a (width, height) tuple
+        Returns:
+            An estimated minimum size as a (width, height) tuple
         """
         # Try to guess some sane minimum size to reduce the brute force iterations
         total_area = sum(t.image.size[0] * t.image.size[1] for t in textures)
@@ -965,7 +972,8 @@ class TextureAtlas:
         or to save the texture to disk.
 
         :param texture: The texture to get the image for
-        :return: A pillow image containing the pixel data in the atlas
+        Returns:
+            A pillow image containing the pixel data in the atlas
         """
         region = self.get_image_region_info(texture.image_data.hash)
         viewport = (
@@ -1016,7 +1024,8 @@ class TextureAtlas:
         :param components: Number of components. (3 = RGB, 4 = RGBA)
         :param draw_borders: Draw region borders into image
         :param color: RGB color of the borders
-        :return: A pillow image containing the atlas texture
+        Returns:
+            A pillow image containing the atlas texture
         """
         if components not in (3, 4):
             raise ValueError(f"Components must be 3 or 4, not {components}")
@@ -1084,7 +1093,8 @@ class TextureAtlas:
         :param flip: Flip the image horizontally
         :param components: Number of components. (3 = RGB, 4 = RGBA)
         :param color: RGB color of the borders
-        :return: A pillow image containing the atlas texture
+        Returns:
+            A pillow image containing the atlas texture
         """
         self.to_image(
             flip=flip,

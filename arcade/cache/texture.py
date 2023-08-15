@@ -109,7 +109,8 @@ class TextureCache:
         Get a texture from the cache by cache name
 
         :param name: The cache name of the texture
-        :return: The texture if found, otherwise None
+        Returns:
+            The texture if found, otherwise None
         """
         return (
             self._strong_entries.get(name)
@@ -122,7 +123,8 @@ class TextureCache:
 
         :param image_data: The image data to search for
         :param hit_box_algorithm: The hit box algorithm to search for
-        :return: The texture if found, otherwise None
+        Returns:
+            The texture if found, otherwise None
         """
         from arcade import Texture
         name = Texture.create_cache_name(

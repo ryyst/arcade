@@ -100,7 +100,8 @@ class SpatialHash(Generic[SpriteType]):
         Get all the sprites that are in the same buckets as the given sprite.
 
         :param sprite: The sprite to check
-        :return: A set of close-by sprites
+        Returns:
+            A set of close-by sprites
         """
         min_point = trunc(sprite.left), trunc(sprite.bottom)
         max_point = trunc(sprite.right), trunc(sprite.top)
@@ -123,7 +124,8 @@ class SpatialHash(Generic[SpriteType]):
 
         :param point: The point to check
 
-        :return: A set of close-by sprites
+        Returns:
+            A set of close-by sprites
         """
         hash_point = self.hash((trunc(point[0]), trunc(point[1])))
         # Return a copy of the set.
@@ -134,7 +136,8 @@ class SpatialHash(Generic[SpriteType]):
         Return sprites in the same buckets as the given rectangle.
 
         :param rect: The rectangle to check (left, right, bottom, top)
-        :return: A set of sprites in the rectangle
+        Returns:
+            A set of sprites in the rectangle
         """
         left, right, bottom, top = rect
         min_point = trunc(left), trunc(bottom)

@@ -39,7 +39,8 @@ def _spot_is_blocked(position: Point,
     :param moving_sprite: Sprite to use
     :param blocking_sprites: List of Sprites to check against
 
-    :return: If the Sprite would hit anything in blocking_sprites at the position
+    Returns:
+        If the Sprite would hit anything in blocking_sprites at the position
     """
     original_pos = moving_sprite.position
     moving_sprite.position = position
@@ -55,7 +56,8 @@ def _heuristic(start: Point, goal: Point) -> float:
     :param start: The 1st point to compare
     :param goal: The 2nd point to compare
 
-    :return: The heuristic of the 2 points
+    Returns:
+        The heuristic of the 2 points
     """
     # Use Chebyshev distance heuristic if we can move one square either
     # adjacent or diagonal
@@ -107,7 +109,8 @@ class _AStarGraph(object):
 
         :param pos: Which position to search around
 
-        :return: Returns vertexes around the point
+        Returns:
+            Returns vertexes around the point
         """
         n = []
         # Moves allow link a chess king
@@ -130,7 +133,8 @@ class _AStarGraph(object):
         :param a: The 1st point to compare
         :param b: The 2nd point to compare
 
-        :return: The move cost of moving between of the 2 points
+        Returns:
+            The move cost of moving between of the 2 points
         """
         if b in self.barriers:
             return float('inf')  # Infitely high cost to enter barrier squares
@@ -150,7 +154,8 @@ def _AStarSearch(start: Point, end: Point, graph: _AStarGraph) -> Optional[List[
     :param start: point to start at
     :param end: point to end at
 
-    :return: The path from start to end. Returns None if is path is not found
+    Returns:
+        The path from start to end. Returns None if is path is not found
     """
     G: Dict[Point, float] = {}  # Actual movement cost to each position from the start position
     F: Dict[Point, float] = {}  # Estimated movement cost of start to end going via this position
@@ -299,7 +304,8 @@ def astar_calculate_path(start_point: Point,
     :param astar_barrier_list: AStarBarrierList with the boundries to use in the AStarSearch Algorithm
     :param diagonal_movement: Whether of not to use diagonals in the AStarSearch Algorithm
 
-    :return: List of points(the path), or None if no path is found
+    Returns:
+        List of points(the path), or None if no path is found
     """
 
     grid_size = astar_barrier_list.grid_size
@@ -345,7 +351,8 @@ def has_line_of_sight(observer: Point,
                  If spatial hashing is not enabled, this function may run
                  very slowly!
 
-    :return: Whether or not oberver to target is blocked by any wall in walls
+    Returns:
+        Whether or not oberver to target is blocked by any wall in walls
     """
     if max_distance <= 0:
         raise ValueError("max_distance must be greater than zero")
@@ -371,7 +378,8 @@ def has_line_of_sight(observer: Point,
 
 #     :param start:
 #     :param end:
-#     :return: List of points
+#     Returns:
+         List of points
 #     """
 #     x1, y1 = start
 #     x2, y2 = end

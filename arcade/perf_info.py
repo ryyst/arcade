@@ -121,7 +121,8 @@ def get_timings() -> Dict:
     Performance tracking must be enabled with
     :func:`arcade.enable_timings` before calling this function.
 
-    :return: A dict of event timing data, consisting of counts and
+    Returns:
+        A dict of event timing data, consisting of counts and
              average handler duration.
     """
     return _timings
@@ -203,6 +204,7 @@ def timings_enabled() -> bool:
     This function can be used at any time to check if timings are
     enabled. See :func:`arcade.enable_timings` for more information.
 
-    :return: Whether timings are currently enabled.
+    Returns:
+        Whether timings are currently enabled.
     """
     return pyglet.window.BaseWindow.dispatch_event == _dispatch_event

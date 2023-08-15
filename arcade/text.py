@@ -40,7 +40,6 @@ def load_font(path: Union[str, Path]) -> None:
 
     :param path: A string, or an array of paths with fonts.
     :raises FileNotFoundError: if the font specified wasn't found
-    :return:
     """
     file_path = resolve(path)
     pyglet.font.add_file(str(file_path))
@@ -62,7 +61,8 @@ def _attempt_font_name_resolution(font_name: FontNameOrNames) -> FontNameOrNames
     the original behavior of this code before it was encapsulated.
 
     :param Union[str, Tuple[str, ...]] font_name:
-    :return: Either a resolved path or the original tuple
+    Returns:
+        Either a resolved path or the original tuple
     """
     if font_name:
 
