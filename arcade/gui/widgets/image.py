@@ -15,6 +15,7 @@ class UIImage(UIWidget):
     """
 
     texture: Union[Texture, NinePatchTexture] = Property()  # type: ignore
+    alpha: int = Property()  # type: ignore
 
     def __init__(
         self,
@@ -26,14 +27,11 @@ class UIImage(UIWidget):
 
         super().__init__(**kwargs)
         bind(self, "texture", self.trigger_render)
+        bind(self, "alpha", self.trigger_full_render)
 
     def do_render(self, surface: Surface):
         self.prepare_render(surface)
         if self.texture:
             surface.draw_texture(
-                x=0,
-                y=0,
-                width=self.content_width,
-                height=self.content_height,
-                tex=self.texture,
+                x=0, y=0, width=self.content_width, height=self.content_height, tex=self.texture, alpha=self.alpha
             )
