@@ -1,3 +1,12 @@
+"""
+An experimental splash screen for arcade.
+
+This is a simple splash screen that shows the arcade logo for a few seconds before the actual game starts.
+
+If arcade is properly installed, you can run this script with:
+python -m arcade.gui.experimental.splash
+"""
+
 import arcade
 from arcade import View
 from arcade.gui import UIView, UIAnchorLayout, UIImage, UILabel, UIBoxLayout
@@ -35,7 +44,6 @@ class ArcadeSplash(UIView):
 
         # fade in arcade logo
         self._logo.alpha = min(255, int(255 * self._time / self.duration))
-        print(self._logo.alpha)
 
 
 if __name__ == "__main__":

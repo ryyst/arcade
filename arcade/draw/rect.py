@@ -20,7 +20,7 @@ def draw_texture_rect(
     color: Color = WHITE,
     angle=0.0,
     blend=True,
-    alpha=1.0,
+    fade=1.0,
     pixelated=False,
     atlas: Optional[TextureAtlasBase] = None,
 ) -> None:
@@ -32,7 +32,7 @@ def draw_texture_rect(
     :param color: Color of the texture. Defaults to white.
     :param angle: Rotation of the texture in degrees. Defaults to zero.
     :param blend: If True, enable alpha blending. Defaults to True.
-    :param alpha: Transparency of image. 0.0 is fully transparent, 1.0 (default) is visible.
+    :param fade: Transparency of image. 0.0 is fully transparent, 1.0 (default) is visible.
     :param atlas: The texture atlas the texture resides in. if not supplied the default texture atlas is used
     """
     ctx = get_window().ctx
@@ -60,7 +60,7 @@ def draw_texture_rect(
     program["size"] = rect.width, rect.height
     program["angle"] = angle
     program["texture_id"] = float(texture_id)
-    program["spritelist_color"] = 1.0, 1.0, 1.0, alpha
+    program["spritelist_color"] = 1.0, 1.0, 1.0, fade
 
     geometry.render(program, mode=gl.POINTS, vertices=1)
 
@@ -72,7 +72,7 @@ def draw_sprite(
     sprite: BasicSprite,
     *,
     blend: bool = True,
-    alpha=1.0,
+    fade=1.0,
     pixelated=False,
     atlas: Optional[TextureAtlasBase] = None,
 ) -> None:
@@ -81,7 +81,7 @@ def draw_sprite(
 
     :param sprite: The sprite to draw.
     :param blend: Draw the sprite with or without alpha blending
-    :param alpha: Fade the sprite from completely transparent to opaque (range: 0.0 to 1.0)
+    :param fade: Fade the sprite from completely transparent to opaque (range: 0.0 to 1.0)
     :param pixelated: If true the sprite will be render in pixelated style. Otherwise smooth/linear
     :param atlas: The texture atlas the texture resides in. if not supplied the default texture atlas is used
     """
@@ -91,7 +91,7 @@ def draw_sprite(
         color=sprite.color,
         angle=sprite._angle,
         blend=blend,
-        alpha=alpha,
+        fade=fade,
         pixelated=pixelated,
         atlas=atlas,
     )
@@ -102,7 +102,7 @@ def draw_sprite_rect(
     rect: Rect,
     *,
     blend: bool = True,
-    alpha=1.0,
+    fade=1.0,
     pixelated=False,
     atlas: Optional[TextureAtlasBase] = None,
 ) -> None:
@@ -112,7 +112,7 @@ def draw_sprite_rect(
     :param sprite: The sprite to draw.
     :param rect: The location and size of the sprite
     :param blend: Draw the sprite with or without alpha blending
-    :param alpha: Fade the sprite from completely transparent to opaque (range: 0.0 to 1.0)
+    :param fade: Fade the sprite from completely transparent to opaque (range: 0.0 to 1.0)
     :param pixelated: If true the sprite will be render in pixelated style. Otherwise smooth/linear
     :param atlas: The texture atlas the texture resides in. if not supplied the default texture atlas is used
     """
@@ -122,7 +122,7 @@ def draw_sprite_rect(
         color=sprite.color,
         angle=sprite._angle,
         blend=blend,
-        alpha=alpha,
+        fade=fade,
         pixelated=pixelated,
         atlas=atlas,
     )
@@ -179,9 +179,7 @@ def draw_lbwh_rectangle_outline(
     draw_rect_outline(LBWH(left, bottom, width, height), color, border_width)
 
 
-def draw_lrbt_rectangle_filled(
-    left: float, right: float, bottom: float, top: float, color: RGBA255
-) -> None:
+def draw_lrbt_rectangle_filled(left: float, right: float, bottom: float, top: float, color: RGBA255) -> None:
     """
     Draw a rectangle by specifying left, right, bottom and top edges.
 
@@ -193,21 +191,15 @@ def draw_lrbt_rectangle_filled(
     :Raises ValueError: Raised if left > right or top < bottom.
     """
     if left > right:
-        raise ValueError(
-            f"Left coordinate {left} must be less than or equal to the right coordinate {right}"
-        )
+        raise ValueError(f"Left coordinate {left} must be less than or equal to the right coordinate {right}")
 
     if bottom > top:
-        raise ValueError(
-            f"Bottom coordinate {bottom} must be less than or equal to the top coordinate {top}"
-        )
+        raise ValueError(f"Bottom coordinate {bottom} must be less than or equal to the top coordinate {top}")
 
     draw_rect_filled(LRBT(left, right, bottom, top), color)
 
 
-def draw_lbwh_rectangle_filled(
-    left: float, bottom: float, width: float, height: float, color: RGBA255
-) -> None:
+def draw_lbwh_rectangle_filled(left: float, bottom: float, width: float, height: float, color: RGBA255) -> None:
     """
     Draw a filled rectangle extending from bottom left to top right
 
@@ -221,9 +213,7 @@ def draw_lbwh_rectangle_filled(
     draw_rect_filled(LBWH(left, bottom, width, height), color)
 
 
-def draw_rect_outline(
-    rect: Rect, color: RGBA255, border_width: float = 1, tilt_angle: float = 0
-) -> None:
+def draw_rect_outline(rect: Rect, color: RGBA255, border_width: float = 1, tilt_angle: float = 0) -> None:
     """
     Draw a rectangle outline.
 
