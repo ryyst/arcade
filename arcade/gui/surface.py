@@ -108,10 +108,14 @@ class Surface:
     ):
         if isinstance(tex, NinePatchTexture):
             if angle != 0.0:
-                raise NotImplementedError(f"Ninepatch does not support an angle != 0 yet, but got {angle}")
+                raise NotImplementedError(
+                    f"Ninepatch does not support an angle != 0 yet, but got {angle}"
+                )
 
             if alpha != 255:
-                raise NotImplementedError(f"Ninepatch does not support an alpha != 255 yet, but got {alpha}")
+                raise NotImplementedError(
+                    f"Ninepatch does not support an alpha != 255 yet, but got {alpha}"
+                )
 
             tex.draw_rect(rect=LBWH(0, 0, width, height))
         else:

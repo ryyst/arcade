@@ -179,7 +179,9 @@ def draw_lbwh_rectangle_outline(
     draw_rect_outline(LBWH(left, bottom, width, height), color, border_width)
 
 
-def draw_lrbt_rectangle_filled(left: float, right: float, bottom: float, top: float, color: RGBA255) -> None:
+def draw_lrbt_rectangle_filled(
+    left: float, right: float, bottom: float, top: float, color: RGBA255
+) -> None:
     """
     Draw a rectangle by specifying left, right, bottom and top edges.
 
@@ -191,15 +193,21 @@ def draw_lrbt_rectangle_filled(left: float, right: float, bottom: float, top: fl
     :Raises ValueError: Raised if left > right or top < bottom.
     """
     if left > right:
-        raise ValueError(f"Left coordinate {left} must be less than or equal to the right coordinate {right}")
+        raise ValueError(
+            f"Left coordinate {left} must be less than or equal to the right coordinate {right}"
+        )
 
     if bottom > top:
-        raise ValueError(f"Bottom coordinate {bottom} must be less than or equal to the top coordinate {top}")
+        raise ValueError(
+            f"Bottom coordinate {bottom} must be less than or equal to the top coordinate {top}"
+        )
 
     draw_rect_filled(LRBT(left, right, bottom, top), color)
 
 
-def draw_lbwh_rectangle_filled(left: float, bottom: float, width: float, height: float, color: RGBA255) -> None:
+def draw_lbwh_rectangle_filled(
+    left: float, bottom: float, width: float, height: float, color: RGBA255
+) -> None:
     """
     Draw a filled rectangle extending from bottom left to top right
 
@@ -213,7 +221,9 @@ def draw_lbwh_rectangle_filled(left: float, bottom: float, width: float, height:
     draw_rect_filled(LBWH(left, bottom, width, height), color)
 
 
-def draw_rect_outline(rect: Rect, color: RGBA255, border_width: float = 1, tilt_angle: float = 0) -> None:
+def draw_rect_outline(
+    rect: Rect, color: RGBA255, border_width: float = 1, tilt_angle: float = 0
+) -> None:
     """
     Draw a rectangle outline.
 

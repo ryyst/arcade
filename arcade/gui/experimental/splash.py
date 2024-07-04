@@ -9,7 +9,7 @@ python -m arcade.gui.experimental.splash
 
 import arcade
 from arcade import View
-from arcade.gui import UIView, UIAnchorLayout, UIImage, UILabel, UIBoxLayout
+from arcade.gui import UIAnchorLayout, UIBoxLayout, UIImage, UILabel, UIView
 
 
 class ArcadeSplash(UIView):
@@ -29,7 +29,9 @@ class ArcadeSplash(UIView):
 
         anchor = self.ui.add(UIAnchorLayout())
         box = anchor.add(UIBoxLayout(space_between=20))
-        self._logo = box.add(UIImage(texture=arcade.load_texture(":system:/logo.png"), width=400, height=400))
+        self._logo = box.add(
+            UIImage(texture=arcade.load_texture(":system:/logo.png"), width=400, height=400)
+        )
         self._logo.alpha = 0
         box.add(UILabel("Python Arcade", text_color=(0, 0, 0, 255), font_size=40, bold=True))
 
