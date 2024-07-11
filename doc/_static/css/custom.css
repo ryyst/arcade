@@ -14,6 +14,82 @@ body {
     }
 }
 
+
+.wy-menu-vertical p.caption {
+  color: #28a05c;
+}
+
+html[data-theme="dark"] .wy-menu-vertical p.caption {
+  color: #28a05c;
+}
+
+/* Hide RTD "home" icon (small house) before page logo text. */
+.wy-side-nav-search .icon-home::before {
+    content: none;
+}
+.wy-side-nav-search .icon-home {
+  display: flex !important;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: left;
+}
+
+html[data-theme="dark"] .wy-side-nav-search .icon-home {
+  color: #28a05c !important;
+}
+
+.wy-side-nav-search .icon-home img.logo {
+  margin: 0 !important;
+  padding: 0px;
+  padding-right: 10px;
+}
+
+
+.wy-nav-content {
+    max-width: 900px;
+}
+
+/* Center the page on wide displays for better readability */
+.wy-body-for-nav {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #cbd0c7;
+
+
+    /* Subtle box shadow to make the content "pop" when centered */
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
+
+}
+
+html[data-theme="dark"] .wy-body-for-nav {
+    background-color: #262826;
+}
+
+/* Required to center the page on wide displays */
+.wy-nav-side {
+    left: inherit;
+}
+
+.rst-versions {
+    /* Required to center the page on wide displays */
+    left: inherit;
+}
+
+
+/* TOP LOGO AREA */
+.wy-side-nav-search {
+  color: #28a05c;
+  background-color: #343131;
+}
+html[data-theme="dark"] .wy-side-nav-search {
+  color: #0c7339 !important;
+  background-color: #0d0d0d !important;
+}
+
+
 /* Wrap individual main page items for easier group manipulation
  of contents and images. See PR #2027 for main page css changes */
 .main-page-item-wrapper {

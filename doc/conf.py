@@ -17,11 +17,11 @@ import sys
 # Then generate thumbnails if they do not exist
 
 # Make thumbnails for the example code screenshots
-runpy.run_path('../util/generate_example_thumbnails.py', run_name='__main__')
+runpy.run_path("../util/generate_example_thumbnails.py", run_name="__main__")
 # Create a listing of the resources
-runpy.run_path('../util/create_resources_listing.py', run_name='__main__')
+runpy.run_path("../util/create_resources_listing.py", run_name="__main__")
 # Run the generate quick API index script
-runpy.run_path('../util/update_quick_index.py', run_name='__main__')
+runpy.run_path("../util/update_quick_index.py", run_name="__main__")
 
 # Enable this is you want __init__ to show up in docs.
 # Ideally, these docs should be in the class docs, not __init__ so try to
@@ -32,21 +32,21 @@ runpy.run_path('../util/update_quick_index.py', run_name='__main__')
 
 autodoc_inherit_docstrings = False
 autodoc_default_options = {
-    'members': True,
-    'member-order': 'groupwise',
-    'undoc-members': True,
-    'show-inheritance': True
+    "members": True,
+    "member-order": "groupwise",
+    "undoc-members": True,
+    "show-inheritance": True,
 }
-toc_object_entries_show_parents = 'hide'
-prettyspecialmethods_signature_prefix = '🧙'
+toc_object_entries_show_parents = "hide"
+prettyspecialmethods_signature_prefix = "🧙"
 
-sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(0, os.path.abspath('../arcade'))
+sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, os.path.abspath("../arcade"))
 
 # Don't change to
 # from arcade.version import VERSION
 # or read the docs build will fail.
-from version import VERSION # pyright: ignore [reportMissingImports]
+from version import VERSION  # pyright: ignore [reportMissingImports]
 
 RELEASE = VERSION
 
@@ -56,20 +56,22 @@ RELEASE = VERSION
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.imgconverter',  # Converts .gif for PDF doc build
-    'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
-    'sphinx_copybutton',
-    'sphinx_sitemap',
+    "sphinx_rtd_theme",
+    "sphinx_rtd_dark_mode",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.imgconverter",  # Converts .gif for PDF doc build
+    "sphinx.ext.doctest",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.coverage",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.ifconfig",
+    "sphinx.ext.viewcode",
+    "sphinx_copybutton",
+    "sphinx_sitemap",
     # "sphinx_autodoc_typehints",
-    'doc.extensions.prettyspecialmethods'
+    "doc.extensions.prettyspecialmethods",
 ]
 
 # --- Spell check. Never worked well.
@@ -83,20 +85,20 @@ extensions = [
 # spelling_word_list_filename = "wordlist.txt"
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = 'Python Arcade Library'
-copyright = '2024, Paul Vincent Craven'
-author = 'Paul Vincent Craven'
+project = "Python Arcade Library"
+copyright = "2024, Paul Vincent Craven"
+author = "Paul Vincent Craven"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -119,7 +121,7 @@ language = "en"
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'default'
+pygments_style = "default"
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
@@ -131,44 +133,50 @@ napoleon_google_docstring = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {
-    'display_version': True,
+    "display_version": True,
+    # if we have a html_logo below, this shows /only/ the logo with no title text
+    "logo_only": False,
+    # Collapse navigation (False makes it tree-like)
+    "collapse_navigation": False,
+    "sticky_navigation": True,
+    "navigation_depth": 3,
 }
 
 html_title = f"Python Arcade {version}"
 
 html_js_files = [
-    'https://code.jquery.com/jquery-3.6.3.min.js',
-    'https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js',
+    "https://code.jquery.com/jquery-3.6.3.min.js",
+    "https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js",
 ]
 
 html_css_files = [
-    'https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css',
+    "https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css",
 ]
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-# html_logo = '_static/favicon-32x32.png'
+html_logo = "_static/favicon-32x32.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = '_static/favicon.ico'
+html_favicon = "_static/favicon.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
 # directly to the root of the documentation.
-html_extra_path = ['html_extra']
+html_extra_path = ["html_extra"]
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Arcade'
-html_baseurl = 'https://api.arcade.academy/'
+htmlhelp_basename = "Arcade"
+html_baseurl = "https://api.arcade.academy/"
 
 # Fix line numbers on code listings until the RTD theme updates to sphinx 4+
 # html_codeblock_linenos_style = 'table'
@@ -186,6 +194,7 @@ suppress_warnings = [
     "ref.python",
 ]
 
+
 def strip_init_return_typehint(app, what, name, obj, options, signature, return_annotation):
     # Prevent a the `-> None` annotation from appearing after classes.
     # This annotation comes from the `__init__`, but it renders on the class,
@@ -193,6 +202,7 @@ def strip_init_return_typehint(app, what, name, obj, options, signature, return_
     # From the user's perspective, this is wrong: `Foo() -> Foo` not `None`
     if what == "class" and return_annotation is None:
         return (signature, None)
+
 
 def warn_undocumented_members(_app, what, name, _obj, _options, lines):
     if len(lines) == 0:
@@ -204,10 +214,12 @@ def warn_undocumented_members(_app, what, name, _obj, _options, lines):
     if what == "class":
         doc = _obj.__init__.__doc__
         if doc and isinstance(doc, str) and not doc.startswith("Initialize self"):
-            raise ValueError((
-                f"Class {name} has a docstring on __init__. "
-                "The class docstring should cover docs for the initializer:\n {_obj.__init__.__doc__}"
-            ))
+            raise ValueError(
+                (
+                    f"Class {name} has a docstring on __init__. "
+                    "The class docstring should cover docs for the initializer:\n {_obj.__init__.__doc__}"
+                )
+            )
 
 
 def generate_color_table(filename, source):
@@ -223,7 +235,9 @@ def generate_color_table(filename, source):
     #    green   '(?P<green>\d*)' followed by
     #    blue    '(?P<blue>\d*)' followed by
     #    alpha   '(?P<alpha>\d*)'
-    color_match = re.compile(r'(?P<name>[a-z_A-Z]*)(?:[ =]*Color[ (]*)(?P<red>\d*)[ ,]*(?P<green>\d*)[ ,]*(?P<blue>\d*)[ ,]*(?P<alpha>\d*)')
+    color_match = re.compile(
+        r"(?P<name>[a-z_A-Z]*)(?:[ =]*Color[ (]*)(?P<red>\d*)[ ,]*(?P<green>\d*)[ ,]*(?P<blue>\d*)[ ,]*(?P<alpha>\d*)"
+    )
 
     with open(filename) as color_file:
         for line in color_file:
@@ -232,13 +246,12 @@ def generate_color_table(filename, source):
             matches = color_match.match(line)
             if not matches:
                 continue
-            
-            color_rgba = f"({matches.group('red')}, {matches.group('green')}, {matches.group('blue')}, {matches.group('alpha')})"
-            
-            # Generate the alpha for CSS color function
-            alpha = int( matches.group('alpha') ) / 255
-            css_rgba = f"({matches.group('red')}, {matches.group('green')}, {matches.group('blue')}, {alpha!s:.4})"
 
+            color_rgba = f"({matches.group('red')}, {matches.group('green')}, {matches.group('blue')}, {matches.group('alpha')})"
+
+            # Generate the alpha for CSS color function
+            alpha = int(matches.group("alpha")) / 255
+            css_rgba = f"({matches.group('red')}, {matches.group('green')}, {matches.group('blue')}, {alpha!s:.4})"
 
             append_text += "    <tr>"
             append_text += f"<td>{matches.group('name')}</td>"
@@ -265,6 +278,7 @@ def source_read(_app, docname, source):
 
 def post_process(_app, _exception):
     pass
+
 
 #     try:
 #         dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -314,26 +328,29 @@ class ClassDocumenter(sphinx.ext.autodoc.ClassDocumenter):
     `app.app_autodocumenter` will produce a warning about a conflict.
     Arcade's build config promotes warnings to errors, breaking build.
     """
+
     def add_directive_header(self, sig: str) -> None:
         r = super().add_directive_header(sig)
         # Strip empty `Bases: `, will be empty when only superclass is `object`
         # cuz we remove it earlier
         strings = self.directive.result
-        if strings[-1] == '   Bases: ':
+        if strings[-1] == "   Bases: ":
             strings.pop()
         return r
 
 
 class Transform(sphinx.transforms.SphinxTransform):
     default_priority = 800
+
     def apply(self):
         self.document.walk(Visitor(self.document))
+
 
 class Visitor(docutils.nodes.SparseNodeVisitor):
     def visit_desc_annotation(self, node):
         # Remove `property` prefix from properties so they look the same as
         # attributes
-        if 'property' in node.astext():
+        if "property" in node.astext():
             node.parent.remove(node)
 
 
@@ -342,9 +359,9 @@ def setup(app):
     # IMPORTANT: We can't use app.add_autodocumenter!
     # See the docstring of ClassDocumenter above for why.
     sphinx.ext.autodoc.ClassDocumenter = ClassDocumenter
-    app.connect('source-read', source_read)
-    app.connect('build-finished', post_process)
+    app.connect("source-read", source_read)
+    app.connect("build-finished", post_process)
     app.connect("autodoc-process-docstring", warn_undocumented_members)
-    app.connect('autodoc-process-signature', strip_init_return_typehint, -1000)
-    app.connect('autodoc-process-bases', on_autodoc_process_bases)
+    app.connect("autodoc-process-signature", strip_init_return_typehint, -1000)
+    app.connect("autodoc-process-bases", on_autodoc_process_bases)
     app.add_transform(Transform)
