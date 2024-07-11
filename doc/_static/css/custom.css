@@ -1,5 +1,10 @@
 :root {
-    --color-emphasis: #67cb48;
+    --color-emphasis: #73c054;
+
+    --color-sidebar-bg-light: #2b2b2b;
+    --color-sidebar-bg-dark: #171716;
+
+    --color-main-bg-dark: #202020;
 }
 
 body {
@@ -18,7 +23,58 @@ body {
     }
 }
 
-/* Togglable sidebar sections. */
+/* Sidebar + top left logo area */
+.wy-side-nav-search,
+.wy-nav-side {
+  background-color: var(--color-sidebar-bg-light) !important;
+}
+html[data-theme="dark"] .wy-side-nav-search,
+html[data-theme="dark"] .wy-nav-side {
+  background-color: var(--color-sidebar-bg-dark) !important;
+}
+
+
+/* 1st level sections */
+html[data-theme="dark"] .wy-menu-vertical li.current > a {
+  background-color: var(--color-main-bg-dark) !important;
+}
+/* 2nd level sections */
+html[data-theme="dark"] .wy-menu-vertical li.toctree-l2.current a {
+  background-color: #1c1c1c !important;
+}
+/* 3rd level sections */
+html[data-theme="dark"] .wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+  background-color: #1c1c1c !important;
+  border-right: currentcolor;
+}
+
+
+
+/* The main content area */
+.wy-nav-content {
+  background-color: #f2f2f2;
+}
+html[data-theme="dark"] .wy-nav-content {
+  background-color: var(--color-main-bg-dark) !important;
+}
+
+
+/* The area under main content, when content doesn't fill the full height of the window */
+.wy-nav-content-wrap {
+  background-color: #e8e8e8;
+}
+html[data-theme="dark"] .wy-nav-content-wrap {
+  background-color: #252525 !important;
+}
+
+/*
+ * Togglable sidebar sections functionality.
+ *
+ * Directly adapted from Godot's own custom RDT code:
+ * https://github.com/godotengine/godot-docs/blob/master/_static/css/custom.css
+ *
+ * <sidebar_toggle>
+ */
 .wy-menu-vertical p.caption {
     cursor: pointer;
 }
@@ -28,7 +84,6 @@ body {
 .wy-menu-vertical p.caption:hover {
     background-color: var(--navbar-background-color-hover);
 }
-
 .wy-menu-vertical p.caption.active .caption-text:before {
     transform: rotate(90deg);
 }
@@ -41,13 +96,13 @@ body {
     height: 32px;
     transform-origin: 2px 16px;
 }
-
 .wy-menu-vertical p.caption + ul {
     display: none;
 }
 .wy-menu-vertical p.caption + ul.active {
     display: block;
 }
+/* </sidebar_toggle> */
 
 
 

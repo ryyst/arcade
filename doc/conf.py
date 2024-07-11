@@ -137,12 +137,10 @@ html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {
     "display_version": True,
-    # if we have a html_logo below, this shows /only/ the logo with no title text
     "logo_only": False,
-    # Collapse navigation (False makes it tree-like)
-    "collapse_navigation": False,
     "sticky_navigation": True,
     "navigation_depth": 3,
+    "collapse_navigation": False,
 }
 
 # user starts in dark mode
@@ -186,10 +184,10 @@ html_baseurl = "https://api.arcade.academy/"
 
 # Configuration for intersphinx enabling linking other projects
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3', None),
-    'pyglet': ('https://pyglet.readthedocs.io/en/latest/', None),
-    'PIL': ('https://pillow.readthedocs.io/en/stable', None),
-    'pymunk': ('https://www.pymunk.org/en/latest/', None),
+    "python": ("https://docs.python.org/3", None),
+    "pyglet": ("https://pyglet.readthedocs.io/en/latest/", None),
+    "PIL": ("https://pillow.readthedocs.io/en/stable", None),
+    "pymunk": ("https://www.pymunk.org/en/latest/", None),
 }
 
 # Fix: "more than one target found for cross-reference 'Texture'"
@@ -358,8 +356,6 @@ class Visitor(docutils.nodes.SparseNodeVisitor):
 
 
 def setup(app):
-    app.add_css_file("css/custom.css")
-    app.add_js_file("js/custom.js")
     # IMPORTANT: We can't use app.add_autodocumenter!
     # See the docstring of ClassDocumenter above for why.
     sphinx.ext.autodoc.ClassDocumenter = ClassDocumenter
@@ -369,3 +365,6 @@ def setup(app):
     app.connect("autodoc-process-signature", strip_init_return_typehint, -1000)
     app.connect("autodoc-process-bases", on_autodoc_process_bases)
     app.add_transform(Transform)
+
+    app.add_css_file("css/custom.css")
+    app.add_js_file("js/custom.js")
