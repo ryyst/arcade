@@ -1,3 +1,7 @@
+:root {
+    --color-emphasis: #67cb48;
+}
+
 body {
     counter-reset: listing;
 }
@@ -14,29 +18,69 @@ body {
     }
 }
 
+/* Togglable sidebar sections. */
+.wy-menu-vertical p.caption {
+    cursor: pointer;
+}
+.wy-menu-vertical p.caption.active {
+    background-color: var(--navbar-category-active-color);
+}
+.wy-menu-vertical p.caption:hover {
+    background-color: var(--navbar-background-color-hover);
+}
+
+.wy-menu-vertical p.caption.active .caption-text:before {
+    transform: rotate(90deg);
+}
+.wy-menu-vertical p.caption .caption-text:before {
+    content: "❯";
+    display: inline-block;
+    margin-left: -4px;
+    transition: transform 0.2s;
+    width: 16px;
+    height: 32px;
+    transform-origin: 2px 16px;
+}
+
+.wy-menu-vertical p.caption + ul {
+    display: none;
+}
+.wy-menu-vertical p.caption + ul.active {
+    display: block;
+}
+
+
 
 .wy-menu-vertical p.caption {
-  color: #28a05c;
+    color: var(--color-emphasis);
 }
 
-html[data-theme="dark"] .wy-menu-vertical p.caption {
-  color: #28a05c;
-}
+/* html[data-theme="dark"] .wy-menu-vertical p.caption { */
+/*   color: #28a05c; */
+/* } */
 
 /* Hide RTD "home" icon (small house) before page logo text. */
 .wy-side-nav-search .icon-home::before {
     content: none;
 }
+
 .wy-side-nav-search .icon-home {
-  display: flex !important;
+  display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: left;
+
+  padding: 16px 8px;
 }
 
-html[data-theme="dark"] .wy-side-nav-search .icon-home {
-  color: #28a05c !important;
+.wy-side-nav-search .icon-home {
+  /* Dark theme css file is loaded after this css for some reason, forcing
+     the use of `!important`. */
+  color: var(--color-emphasis) !important;
 }
+/* html[data-theme="dark"] .wy-side-nav-search .icon-home { */
+/*   color: #28a05c !important; */
+/* } */
 
 .wy-side-nav-search .icon-home img.logo {
   margin: 0 !important;
@@ -79,13 +123,12 @@ html[data-theme="dark"] .wy-body-for-nav {
 }
 
 
+
 /* TOP LOGO AREA */
 .wy-side-nav-search {
-  color: #28a05c;
   background-color: #343131;
 }
 html[data-theme="dark"] .wy-side-nav-search {
-  color: #0c7339 !important;
   background-color: #0d0d0d !important;
 }
 

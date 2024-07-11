@@ -145,6 +145,9 @@ html_theme_options = {
     "navigation_depth": 3,
 }
 
+# user starts in dark mode
+default_dark_mode = True
+
 html_title = f"Python Arcade {version}"
 
 html_js_files = [
@@ -356,6 +359,7 @@ class Visitor(docutils.nodes.SparseNodeVisitor):
 
 def setup(app):
     app.add_css_file("css/custom.css")
+    app.add_js_file("js/custom.js")
     # IMPORTANT: We can't use app.add_autodocumenter!
     # See the docstring of ClassDocumenter above for why.
     sphinx.ext.autodoc.ClassDocumenter = ClassDocumenter
