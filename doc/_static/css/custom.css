@@ -23,6 +23,7 @@ body {
     }
 }
 
+
 /* Sidebar + top left logo area */
 .wy-side-nav-search,
 .wy-nav-side {
@@ -38,16 +39,18 @@ html[data-theme="dark"] .wy-nav-side {
 html[data-theme="dark"] .wy-menu-vertical li.current > a {
   background-color: var(--color-main-bg-dark) !important;
 }
+html[data-theme="dark"] .wy-menu-vertical li.toctree-l2 a {
+  background-color: #131313 !important;
+}
 /* 2nd level sections */
 html[data-theme="dark"] .wy-menu-vertical li.toctree-l2.current a {
-  background-color: #1c1c1c !important;
+  background-color: #222222 !important;
 }
 /* 3rd level sections */
 html[data-theme="dark"] .wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
-  background-color: #1c1c1c !important;
+  background-color: #222222 !important;
   border-right: currentcolor;
 }
-
 
 
 /* The main content area */
@@ -66,6 +69,8 @@ html[data-theme="dark"] .wy-nav-content {
 html[data-theme="dark"] .wy-nav-content-wrap {
   background-color: #252525 !important;
 }
+
+
 
 /*
  * Togglable sidebar sections functionality.
@@ -106,37 +111,40 @@ html[data-theme="dark"] .wy-nav-content-wrap {
 
 
 
+/* Mobile top header bar. */
+.wy-nav-top,
+.wy-nav-top a {
+  color: var(--color-emphasis) !important;
+  background-color: var(--color-sidebar-bg-light) !important;
+}
+html[data-theme="dark"] .wy-nav-top,
+html[data-theme="dark"] .wy-nav-top a {
+  color: var(--color-emphasis) !important;
+  background-color: var(--color-sidebar-bg-light) !important;
+}
+
+
+/* Sidebar first level headers. */
 .wy-menu-vertical p.caption {
     color: var(--color-emphasis);
 }
-
-/* html[data-theme="dark"] .wy-menu-vertical p.caption { */
-/*   color: #28a05c; */
-/* } */
 
 /* Hide RTD "home" icon (small house) before page logo text. */
 .wy-side-nav-search .icon-home::before {
     content: none;
 }
 
+/* Swap the ordering of default RTD logo/title elements and position accordingly. */
 .wy-side-nav-search .icon-home {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: left;
 
-  padding: 16px 8px;
-}
+  padding: 16px 12px;
 
-.wy-side-nav-search .icon-home {
-  /* Dark theme css file is loaded after this css for some reason, forcing
-     the use of `!important`. */
   color: var(--color-emphasis) !important;
 }
-/* html[data-theme="dark"] .wy-side-nav-search .icon-home { */
-/*   color: #28a05c !important; */
-/* } */
-
 .wy-side-nav-search .icon-home img.logo {
   margin: 0 !important;
   padding: 0px;
@@ -144,47 +152,33 @@ html[data-theme="dark"] .wy-nav-content-wrap {
 }
 
 
-.wy-nav-content {
-    max-width: 900px;
-}
+/* Center the page on wide displays for better readability. */
+@media screen and (min-width: 768px) {
+    .wy-nav-content {
+        max-width: 900px;
+    }
 
-/* Center the page on wide displays for better readability */
-.wy-body-for-nav {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #cbd0c7;
+    /* Page background behind centered area, visible on wide screens. */
+    .wy-body-for-nav {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #cbd0c7;
 
+        /* Subtle box shadow to make the content "pop" when centered. */
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.70);
+        -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.70);
+        -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.70);
+    }
+    html[data-theme="dark"] .wy-body-for-nav {
+        background-color: #262826;
+    }
 
-    /* Subtle box shadow to make the content "pop" when centered */
-    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
-    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.70);
-
-}
-
-html[data-theme="dark"] .wy-body-for-nav {
-    background-color: #262826;
-}
-
-/* Required to center the page on wide displays */
-.wy-nav-side {
-    left: inherit;
-}
-
-.rst-versions {
-    /* Required to center the page on wide displays */
-    left: inherit;
-}
-
-
-
-/* TOP LOGO AREA */
-.wy-side-nav-search {
-  background-color: #343131;
-}
-html[data-theme="dark"] .wy-side-nav-search {
-  background-color: #0d0d0d !important;
+    /* Required extra rules for navigation & revision flyout to center everything. */
+    .wy-nav-side,
+    .rst-versions {
+        left: inherit;
+    }
 }
 
 
